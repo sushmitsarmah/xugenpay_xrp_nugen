@@ -1,0 +1,147 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk XRP Nexus Design System */
+
+@layer base {
+  :root {
+    --background: 218 20% 10%; /* Deep charcoal grey #1A1A2E */
+    --foreground: 0 0% 88%; /* Light grey #E0E0E0 */
+
+    --card: 218 20% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 218 20% 10%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 195 100% 50%; /* Electric blue #00BFFF */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 102 100% 55%; /* Emerald green #39FF14 */
+    --secondary-foreground: 218 20% 10%;
+
+    --muted: 218 20% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 271 88% 35%; /* Deep violet #6A0DAD */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 348 83% 47%; /* Crimson red #DC143C */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 20% 20%;
+    --input: 218 20% 15%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.375rem;
+
+    /* Custom cyberpunk colors */
+    --electric-blue: 195 100% 50%;
+    --emerald-green: 102 100% 55%;
+    --crimson-red: 348 83% 47%;
+    --deep-violet: 271 88% 35%;
+    --neon-glow: 195 100% 50%;
+  }
+
+  .dark {
+    --background: 218 20% 10%;
+    --foreground: 0 0% 88%;
+    --card: 218 20% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 218 20% 10%;
+    --popover-foreground: 0 0% 88%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 102 100% 55%;
+    --secondary-foreground: 218 20% 10%;
+    --muted: 218 20% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 271 88% 35%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 348 83% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 218 20% 20%;
+    --input: 218 20% 15%;
+    --ring: 195 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Lato', sans-serif;
+  }
+
+  .font-cyber {
+    font-family: 'Rajdhani', 'Orbitron', 'Space Mono', monospace;
+  }
+
+  .font-mono-cyber {
+    font-family: 'Space Mono', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  .cyber-glow {
+    box-shadow: 0 0 10px hsl(var(--electric-blue) / 0.3);
+  }
+
+  .cyber-border {
+    border: 1px solid hsl(var(--electric-blue) / 0.4);
+  }
+
+  .emerald-glow {
+    box-shadow: 0 0 15px hsl(var(--emerald-green) / 0.4);
+  }
+
+  .red-glow {
+    box-shadow: 0 0 15px 2px hsl(var(--crimson-red) / 0.7), 0 0 32px 4px hsl(var(--crimson-red) / 0.4);
+  }
+
+  .grid-overlay {
+    background-image: 
+      linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.2), transparent);
+    animation: scanline 2s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    from {
+      box-shadow: 0 0 5px hsl(var(--electric-blue) / 0.2);
+    }
+    to {
+      box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.6);
+    }
+  }
+}
